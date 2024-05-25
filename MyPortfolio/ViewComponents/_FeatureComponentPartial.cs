@@ -1,9 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.DAL.Context;
 
 namespace MyPortfolio.ViewComponents
 {
     public class _FeatureComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke() { return View(); }
+        MyPortfolioContext portfolioContext = new MyPortfolioContext();
+
+        public IViewComponentResult Invoke() 
+        {
+            var values = portfolioContext.Features.ToList();
+            return View(values); 
+        }
     }
 }
