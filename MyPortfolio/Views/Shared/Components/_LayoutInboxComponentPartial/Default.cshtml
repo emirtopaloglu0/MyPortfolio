@@ -1,0 +1,47 @@
+﻿@model List<Message>
+
+
+<li class="nav-item dropdown hidden-caret">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="la la-envelope"></i>
+        <span class="notification"> @ViewBag.messageCount </span>
+    </a>
+
+    <ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
+        <li>
+            <div class="dropdown-title">@ViewBag.messageCount Yeni Mesajınız Var.</div>
+        </li>
+        <li>
+            <div class="notif-center">
+
+                @foreach (var item in Model)
+                {
+                    //var date = item.Date.Minute - DateTime.Now.Minute;
+                    <a href="/Message/MessageDetail/@item.MessageId">
+                        <div class="notif-icon ">
+                            <i class="la la-envelope-square"></i>
+                        </div>
+                        <div class="notif-content">
+                            <span class="block">
+                                @item.NameSurname
+                            </span>
+                            <span class="time">@item.Subject </span>
+                        </div>
+                    </a>
+                }
+
+
+
+
+            </div>
+        </li>
+        <li>
+            <a class="see-all" href="/Message/Inbox"> <strong>Gelen Kutusuna Git</strong> <i class="la la-angle-right"></i> </a>
+        </li>
+    </ul>
+</li>
+
+
+
+
+
