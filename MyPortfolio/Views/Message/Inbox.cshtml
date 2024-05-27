@@ -24,7 +24,7 @@
                                     <th scope="col">Gönderen</th>
                                     <th scope="col">Konu</th>
                                     <th scope="col">Tarih</th>
-                                    <th scope="col">Mesajı Aç</th>
+                                    <th scope="col">Detay</th>
                                     <th scope="col">Durum</th>
                                     <th scope="col">Sil</th>
                                    
@@ -38,18 +38,20 @@
                                         <td>@item.NameSurname</td>
                                         <td>@item.Subject</td>
                                         <td>@item.SendDate.ToShortDateString()</td>
-                                        <td><a href="/Message/MessageDetail/@item.MessageId" class="btn btn-warning">Mesajı Aç</a></td>
+                                        <td><a href="/Message/MessageDetail/@item.MessageId" class="btn btn-warning btn-round btn-border">Mesajı Aç</a></td>
                                         @if (item.IsRead)
                                         {
-                                            <td><a href="/Message/ChangeIsReadToFalse/@item.MessageId" class="btn btn-dark">Okunmadı Olarak İşaretle</a></td>
+                                            <td><a href="/Message/ChangeIsReadToFalse/@item.MessageId" 
+                                                class="btn btn-default btn-round">Okunmadı Olarak İşaretle</a></td>
 
                                         }
                                         else
                                         {
-                                            <td><a href="/Message/ChangeIsReadToTrue/@item.MessageId" class="btn btn-info">Okundu Olarak İşaretle</a></td>
+                                            <td><a href="/Message/ChangeIsReadToTrue/@item.MessageId" 
+                                                class="btn btn-info btn-round">Okundu Olarak İşaretle</a></td>
 
                                         }
-                                        <td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger btn-round">Sil</a></td>
                                         
                                     </tr>
                                 }

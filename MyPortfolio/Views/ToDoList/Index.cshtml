@@ -22,11 +22,14 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    
+                                    <th scope="col">Durum</th>
+
                                     <th scope="col">İçerik</th>
                                     <th scope="col">Tarih</th>
-                                    <th scope="col">Durum</th>
-                                    <th scope="col">Sil</th>
-                                    <th scope="col">Güncelle</th>
+
+                                    <th scope="col">Eylemler</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,31 +38,38 @@
                                     count++;
                                     <tr>
                                         <td>@count</td>
-                                        <td>@item.Title</td>
-                                        <td>@item.Date</td>
+                                        
                                         
                                         @if(item.Status)
                                         {
                                             <td>
-                                                <a href="/ToDoList/ChangeToDoListStatusToFalse/@item.ToDoListId"
-                                                   class="btn btn-dark">Yapılmadı Olarak İşaretle</a></td>
+                                                <a href="/ToDoList/ChangeToDoListStatusToFalse/@item.ToDoListId">
+                                                    <input class="form-check-input" type="checkbox" value="" checked>
+                                                    <span class="form-check-sign"></span>
+                                               </a>
+                                            </td>
 
                                         }
                                         else
                                         {
                                             <td>
-                                                <a href="/ToDoList/ChangeToDoListStatusToTrue/@item.ToDoListId"
-                                                   class="btn btn-info">Yapıldı Olarak İşaretle</a>
+                                                <a href="/ToDoList/ChangeToDoListStatusToTrue/@item.ToDoListId">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign"></span>
+                                               </a>
                                             </td>
                                         }
 
-                                        <td><a href="/ToDoList/DeleteToDoList/@item.ToDoListId" class="btn btn-danger">Sil</a></td>
-                                        <td><a href="/ToDoList/UpdateToDoList/@item.ToDoListId" class="btn btn-success">Güncelle</a></td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Date</td>
+
+                                        <td><a href="/ToDoList/DeleteToDoList/@item.ToDoListId" class="btn btn-danger btn-round">Sil</a></td>
+                                        <td><a href="/ToDoList/UpdateToDoList/@item.ToDoListId" class="btn btn-success btn-round">Güncelle</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/ToDoList/CreateToDoList/" class="btn btn-primary">Yeni Yapılacak İşlem Girişi</a>
+                        <a href="/ToDoList/CreateToDoList/" class="btn btn-warning btn-round btn-border">Yeni Görev Ekle</a>
 
                     </div>
                 </div>
