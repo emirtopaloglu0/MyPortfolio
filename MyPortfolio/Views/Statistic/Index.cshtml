@@ -89,6 +89,7 @@
         </div>
 
         <br />
+
         <div class="row">
             <div class="col-md-6">
                 <div class="card card-tasks">
@@ -262,16 +263,20 @@
                                     <span class="text-muted fw-bold">@item.Value</span>
                                 </div>
                                 <div class="progress mb-2" style="height: 7px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="@item.Value%"></div>
+                                    <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: @item.Value%" 
+                                    aria-valuenow="@item.Value" 
+                                    aria-valuemin="0" aria-valuemax="100" 
+                                    data-toggle="tooltip" data-placement="top" title="%@item.Value%"></div>
                                 </div>
                                 <div >
-                                    <a href="" class=" btn btn-default btn-round btn-border">Düzenle</a> 
-                                    @*Controller'ı eklenecek. Deneyimler gibi olacak. Href'inde item id yollayacağız.*@
-                                    <a href="" class=" btn btn-danger btn-round btn-border">Sil</a>
+                                    <a href="/Skill/UpdateSkill/@item.SkillId" class=" btn btn-default btn-round btn-border">Düzenle</a> 
+                                    <a href="/Skill/_DeleteSkill/@item.SkillId" class=" btn btn-danger btn-round btn-border">Sil</a>
                                 </div>
                             </div>
                         }
-                        <a href="" class="btn btn-primary btn-round btn-border">Yeni Beceri Ekle</a>
+                        <hr />
+                        <a href="/Skill/CreateSkill" class="btn btn-primary btn-round btn-border">Yeni Beceri Ekle</a>
 
                     </div>
                 </div>
