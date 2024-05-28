@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Layout/Index.cshtml";
+    int count = 0;
 }
 
 <div class="content">
@@ -67,23 +68,23 @@
                 </div>
             </div>
             @* <div class="col-md-3">
-                <div class="card card-stats card-primary">
-                    <div class="card-body ">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="icon-big text-center">
-                                    <i class="la la-check-circle"></i>
-                                </div>
-                            </div>
-                            <div class="col-7 d-flex align-items-center">
-                                <div class="numbers">
-                                    <p class="card-category">Okunanlar</p>
-                                    <h4 class="card-title">@ViewBag.v4</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="card card-stats card-primary">
+            <div class="card-body ">
+            <div class="row">
+            <div class="col-5">
+            <div class="icon-big text-center">
+            <i class="la la-check-circle"></i>
+            </div>
+            </div>
+            <div class="col-7 d-flex align-items-center">
+            <div class="numbers">
+            <p class="card-category">Okunanlar</p>
+            <h4 class="card-title">@ViewBag.v4</h4>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
             </div> *@
         </div>
 
@@ -104,7 +105,7 @@
                                             #
                                         </th>
                                         <th>Görev</th>
-                                        <th>Eylemler</th>
+
 
                                     </tr>
                                 </thead>
@@ -182,8 +183,10 @@
                                             <td><i class="la la-envelope"></i></td>
                                             <td>@item.NameSurname</td>
                                             <td>@item.Subject</td>
-                                            <td><a href="/Message/MessageDetail/@item.MessageId" 
-                                                class="btn btn-info btn-round">Mesajı Aç</a></td>
+                                            <td>
+                                                <a href="/Message/MessageDetail/@item.MessageId"
+                                                   class="btn btn-info btn-round">Mesajı Aç</a>
+                                            </td>
 
                                         </tr>
                                     }
@@ -198,10 +201,84 @@
                     </div>
                 </div>
             </div>
-        
-        </div>
-       
 
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h4 class="card-title">Deneyimler</h4>
+                        @* <p class="card-category">Users Table</p> *@
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-head-bg-info table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Unvan</th>
+                                    <th scope="col">Tarih</th>
+                                    <th scope="col">Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.v6)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.Head</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Date</td>
+                                        <td>@item.Description</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h4 class="card-title">Beceriler</h4>
+                    </div>
+                    <div class="card-body">
+                        @foreach (var item in ViewBag.v7)
+                        {
+                            <div class="progress-card">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-muted">@item.Title</span>
+                                    <span class="text-muted fw-bold">@item.Value</span>
+                                </div>
+                                <div class="progress mb-2" style="height: 7px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="@item.Value%"></div>
+                                </div>
+                                <div >
+                                    <a href="" class=" btn btn-default btn-round btn-border">Düzenle</a> 
+                                    @*Controller'ı eklenecek. Deneyimler gibi olacak. Href'inde item id yollayacağız.*@
+                                    <a href="" class=" btn btn-danger btn-round btn-border">Sil</a>
+                                </div>
+                            </div>
+                        }
+                        <a href="" class="btn btn-primary btn-round btn-border">Yeni Beceri Ekle</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 
 
     </div>
