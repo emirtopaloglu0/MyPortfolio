@@ -186,7 +186,7 @@
                                             <td>@item.Subject</td>
                                             <td>
                                                 <a href="/Message/MessageDetail/@item.MessageId"
-                                                   class="btn btn-info btn-round">Mesajı Aç</a>
+                                                   class="btn btn-small btn-info btn-round">Mesajı Aç</a>
                                             </td>
 
                                         </tr>
@@ -260,14 +260,14 @@
                             <div class="progress-card">
                                 <div class="d-flex justify-content-between mb-1">
                                     <span class="text-muted">@item.Title</span>
-                                    <span class="text-muted fw-bold">@item.Value</span>
+                                    <span class="text-muted fw-bold">%@item.Value</span>
                                 </div>
                                 <div class="progress mb-2" style="height: 7px;">
                                     <div class="progress-bar bg-success" role="progressbar" 
                                     style="width: @item.Value%" 
                                     aria-valuenow="@item.Value" 
                                     aria-valuemin="0" aria-valuemax="100" 
-                                    data-toggle="tooltip" data-placement="top" title="%@item.Value%"></div>
+                                    data-toggle="tooltip" data-placement="top" title="%@item.Value"></div>
                                 </div>
                                 <div >
                                     <a href="/Skill/UpdateSkill/@item.SkillId" class=" btn btn-default btn-round btn-border">Düzenle</a> 

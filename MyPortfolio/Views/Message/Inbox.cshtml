@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Inbox";
     Layout = "~/Views/Layout/Index.cshtml";
+    int count = 0;
 }
 
 <div class="content">
@@ -20,7 +21,7 @@
                         <table class="table mt-3">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    @* <th scope="col"></th> *@
                                     <th scope="col">Gönderen</th>
                                     <th scope="col">Konu</th>
                                     <th scope="col">Tarih</th>
@@ -33,8 +34,9 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
+                                    count++;
                                     <tr>
-                                        <td>@item.MessageId</td>
+                                        @* <td></td> *@
                                         <td>@item.NameSurname</td>
                                         <td>@item.Subject</td>
                                         <td>@item.SendDate.ToShortDateString()</td>
