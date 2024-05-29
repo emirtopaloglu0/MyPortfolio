@@ -1,5 +1,4 @@
-﻿@model List<Skill>
-
+﻿@model List<Contact>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Layout/Index.cshtml";
@@ -8,12 +7,12 @@
 
 <div class="content">
     <div class="container-fluid">
-        <h4 class="page-title">Yetenekler</h4>
+        <h4 class="page-title">İletişim Bilgileri</h4>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Yetenek Listesi</div>
+                        <div class="card-title">İletişim Bilgileri Listesi</div>
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
@@ -23,9 +22,14 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Beceri</th>
-                                    <th scope="col">Değer</th>
-                                    
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Açıklama</th>
+                                    <th scope="col">Tel 1</th>
+                                    <th scope="col">Tel 2</th>
+                                    <th scope="col">Email 1</th>
+                                    <th scope="col">Email 2</th>
+                                    <th scope="col">Adres</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,21 +39,27 @@
                                     <tr>
                                         <td>@count</td>
                                         <td>@item.Title</td>
-                                        <td>%@item.Value</td>
-                                        
+                                        <td>@item.Description</td>
+                                        <td>@item.Phone1</td>
+                                        <td>@item.Phone2</td>
+                                        <td>@item.Email1</td>
+                                        <td>@item.Email2</td>
+                                        <td>@item.Address</td>
+
                                         <td>
-                                            <a href="/Skill/DeleteSkill/@item.SkillId"
+                                            <a href="/Contact/DeleteContact/@item.ContactId"
                                                class="btn btn-danger btn-round ">Sil</a>
                                         </td>
                                         <td>
-                                            <a href="/Skill/UpdateSkill/@item.SkillId"
-                                               class="btn btn-default btn-round">Güncelle</a>
+                                            <a href="/Contact/UpdateContact/@item.ContactId"
+                                               class="btn btn-info btn-round">Güncelle</a>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/Skill/CreateSkill/" class="btn btn-primary btn-round btn-border">Yeni Yetenek Ekle</a>
+                        <a href="/Contact/CreateContact/" 
+                        class="btn btn-success btn-round">Yeni İletişim Bilgisi Girişi</a>
 
                     </div>
                 </div>
@@ -57,5 +67,4 @@
         </div>
     </div>
 </div>
-
 
